@@ -150,7 +150,7 @@ class ArXivScraper:
         df = df.drop_duplicates(subset="arxiv_id")
         # Ensure we have exactly papers_per_class or less for each label
         df = (
-            df.groupby("label")
+            df.groupby("label", group_keys=False)
             .apply(
                 lambda x: x.sample(
                     n=min(len(x), self.papers_per_class), random_state=self.seed

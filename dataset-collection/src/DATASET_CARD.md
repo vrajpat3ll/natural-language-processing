@@ -24,14 +24,16 @@ Collected for NLP Lab (CS-5-45(MO)), IIT Jammu, Semester 2, 2025-2026.
 
 ## Label Schema
 
-| Label         | arXiv Categories           | Theme                           |
-| ------------- | -------------------------- | ------------------------------- |
-| NLP/AI        | cs.CL, cs.AI, cs.LG, cs.IR | Language, reasoning, & learning |
-| Vision        | cs.CV, cs.GR, cs.MM        | Visual computing & multimedia   |
-| Systems/Infra | cs.NI, cs.DC, cs.OS, cs.SY | Networks, systems, & infra      |
-| Algorithms    | cs.DS, cs.CC, cs.GT, cs.CG | Theory & foundations            |
+The `label` column contains numeric indices corresponding to the following categories:
 
-Label = **primary category** (first arXiv tag). Cross-listed papers are not duplicated.
+| (Index) Label     | arXiv Categories           | Theme                           |
+| ----------------- | -------------------------- | ------------------------------- |
+| (0) Algorithms    | cs.DS, cs.CC, cs.GT, cs.CG | Theory & foundations            |
+| (1) NLP/AI        | cs.CL, cs.AI, cs.LG, cs.IR | Language, reasoning, & learning |
+| (2) Systems/Infra | cs.NI, cs.DC, cs.OS, cs.SY | Networks, systems, & infra      |
+| (3) Vision        | cs.CV, cs.GR, cs.MM        | Visual computing & multimedia   |
+
+Label assignment is based on the **primary category** (the first arXiv tag). Cross-listed papers are not duplicated.
 
 ## Fields
 
@@ -42,7 +44,7 @@ Label = **primary category** (first arXiv tag). Cross-listed papers are not dupl
 | `abstract`    | Raw abstract (no preprocessing) |
 | `primary_cat` | Primary arXiv category          |
 | `all_cats`    | All categories (pipe-separated) |
-| `label`       | One of the four thematic labels |
+| `label`       | Thematic label (numeric index)  |
 
 ## Collection details
 

@@ -63,7 +63,7 @@ class DatasetUploader:
             raise ValueError("HF_TOKEN is required. Check your .env file.")
 
         try:
-            from datasets import Dataset, Features, Value, ClassLabel
+            from datasets import ClassLabel, Dataset, Features, Value
             from huggingface_hub import HfApi
         except ImportError:
             raise ImportError(
@@ -72,8 +72,9 @@ class DatasetUploader:
 
         log.info(f"Preparing dataset for Hub: {target_repo}")
 
-        # Schema & Conversion
-        label_names = sorted(df["primary_cat"].unique().tolist())
+        # Use fixed label order for consistent indexing across all runs
+        from scraping.scraper import DEFAULT_LABEL_GROUPS
+        label_names = sorted(DEFAULT_LABEL_GROUPS.keys())
         label2id = {name: i for i, name in enumerate(label_names)}
 
         features = Features(
@@ -87,9 +88,12 @@ class DatasetUploader:
             }
         )
 
-        df_hf = df.copy()
-        df_hf["label"] = df_hf["primary_cat"].map(label2id)
-        dataset = Dataset.from_pandas(df_hf, features=features)
+        cols = list(features.keys())
+        df_hf = df[cols].copy()
+
+        # Map string labels to integers for ClassLabel
+        df_hf["label"] = df_hf["label"].map(label2id)
+        dataset = Dataset.from_pandas(df_hf, features=features, preserve_index=False)
 
         # Push Dataset
         dataset.push_to_hub(
