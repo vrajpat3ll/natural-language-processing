@@ -110,17 +110,24 @@ class ArXivScraper:
         records = []
         seen_ids = set()
 
-        # arXiv results are fetched per category to ensure coverage
-        target_per_cat = self.papers_per_class // len(categories) + 10
+        # Fetch more than needed to account for:
+        # 1. Duplicates within the group (across categories)
+        # 2. Global deduplication (papers in multiple groups)
+        target_with_buffer = int(self.papers_per_class * 1.2)
 
         for cat in categories:
+            # We search for the full buffered target in each category.
+            # This ensures that even if some categories have fewer papers or many
+            # duplicates, we can fulfill the quota from other categories in the group.
             search = arxiv.Search(
                 query=f"cat:{cat}",
-                max_results=target_per_cat,
+                max_results=target_with_buffer,
                 sort_by=arxiv.SortCriterion.SubmittedDate,
             )
 
-            with tqdm(total=target_per_cat, desc=f"  {cat}", leave=False) as pbar:
+            with tqdm(
+                total=target_with_buffer, desc=f"  {cat}", leave=False, unit="paper"
+            ) as pbar:
                 for result in self.client.results(search):
                     if result.entry_id in seen_ids:
                         continue
@@ -138,27 +145,31 @@ class ArXivScraper:
                     seen_ids.add(result.entry_id)
                     pbar.update(1)
 
-                    if len(records) >= self.papers_per_class:
+                    if len(records) >= target_with_buffer:
                         break
-            if len(records) >= self.papers_per_class:
+
+            if len(records) >= target_with_buffer:
                 break
 
-        return records[: self.papers_per_class]
+        return records[:target_with_buffer]
 
     def _post_process(self, df: pd.DataFrame) -> pd.DataFrame:
         """Deduplicate and balance class sizes."""
         df = df.drop_duplicates(subset="arxiv_id")
-        # Ensure we have exactly papers_per_class or less for each label
-        df = (
-            df.groupby("label", group_keys=False)
+
+        # Ensure we have exactly papers_per_class or less for each label.
+        # We sample indices to avoid losing columns like 'label' due to groupby behaviors.
+        sampled_indices = (
+            df.groupby("label")["arxiv_id"]
             .apply(
                 lambda x: x.sample(
                     n=min(len(x), self.papers_per_class), random_state=self.seed
                 )
             )
-            .reset_index(drop=True)
+            .index.get_level_values(1)
         )
-        return df
+
+        return df.loc[sampled_indices].reset_index(drop=True)
 
     def save_parquet(self, path: Path) -> None:
         """Save to Parquet (primary format)."""
