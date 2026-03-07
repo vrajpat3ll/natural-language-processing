@@ -180,7 +180,7 @@ class ArXivScraper:
             raise ValueError("No data collected. Call .collect() first.")
         return self._df
 
-    def summarize(
+    def analyze(
         self,
         print_global: bool = True,
         print_per_label: bool = True,
@@ -202,18 +202,18 @@ class ArXivScraper:
         -------
         >>> scraper = ArXivScraper()
         >>> df = scraper.collect()
-        >>> s = scraper.summarize()
+        >>> s = scraper.analyze()
         >>> stats = s.global_stats()   # dict with all table values
         >>> df_label = s.per_label_stats()
         """
-        summarizer = DatasetAnalyzer(self.data)
+        analyzer = DatasetAnalyzer(self.data)
 
         if print_global:
             print("\nGlobal Dataset Summary (Lab 1 - Task 1)")
             print("=" * 53)
-            log.info(summarizer.print())
+            log.info(analyzer.print())
 
         if print_per_label:
-            log.info(summarizer.print_per_label())
+            log.info(analyzer.print_per_label())
 
-        return summarizer
+        return analyzer

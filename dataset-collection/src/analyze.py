@@ -167,13 +167,13 @@ class DatasetAnalyzer:
         sep = "+" + "-" * col_w + "+" + "-" * val_w + "+"
 
         output = []
-        output += [(sep)]
-        output += [(f"| {'Property':<{col_w - 1}}| {'Value':<{val_w - 1}}|")]
-        output += [(sep)]
+        output += [sep]
+        output += [f"| {'Property':<{col_w - 1}}| {'Value':<{val_w - 1}}|"]
+        output += [sep]
         for prop, val in stats.items():
             val_str = f"{val:,}" if isinstance(val, int) else str(val)
-            output += [(f"| {prop:<{col_w - 1}}| {val_str:<{val_w - 1}}|")]
-        output += [(sep)]
+            output += [f"| {prop:<{col_w - 1}}| {val_str:<{val_w - 1}}|"]
+        output += [sep]
 
         output = "\n".join(output)
         print(output)
@@ -187,10 +187,10 @@ class DatasetAnalyzer:
         for c in int_cols:
             df[c] = df[c].apply(lambda x: f"{x:,}")
         output = []
-        output += [("\nPer-Label Summary")]
-        output += [("=" * 70)]
-        output += [(df.to_string())]
-        output += [()]
+        output += ["\nPer-Label Summary"]
+        output += ["=" * 70]
+        output += [df.to_string()]
+        output += []
         output = "\n".join(output)
 
         print(output)

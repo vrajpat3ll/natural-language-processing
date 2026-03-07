@@ -101,6 +101,8 @@ def main() -> None:
     if args.format in ["csv", "both"]:
         scraper.save_csv(args.out_dir / f"{base_name}.csv")
 
+    scraper.analyze()
+
     if args.push:
         uploader = DatasetUploader()
         try:
