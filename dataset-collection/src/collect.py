@@ -58,7 +58,7 @@ def parse_args() -> argparse.Namespace:
         "--format",
         type=str,
         choices=["parquet", "csv", "both"],
-        default="parquet",
+        default="csv",
         help="Storage format for local data",
     )
     parser.add_argument(

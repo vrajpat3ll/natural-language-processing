@@ -1,6 +1,7 @@
 import hashlib
 import json
 from pathlib import Path
+import re
 
 import arxiv
 import pandas as pd
@@ -74,9 +75,9 @@ class ArXivScraper:
 
     def load_from_cache(self) -> bool:
         """Attempts to load data from existing cache files."""
-        cache_path = self._get_cache_path("parquet")
+        cache_path = self._get_cache_path("csv")
         if cache_path.exists():
-            self._df = pd.read_parquet(cache_path)
+            self._df = pd.read_csv(cache_path)
             log.info(f"Loaded from cache: {cache_path}")
             return True
         return False
@@ -102,7 +103,7 @@ class ArXivScraper:
         self._df = df
 
         # Auto-save to cache after fresh collection
-        self.save_parquet(self._get_cache_path("parquet"))
+        self.save_csv(self._get_cache_path("csv"))
         return df
 
     def _fetch_group(self, label: str, categories: list[str]) -> list[dict]:
@@ -132,9 +133,14 @@ class ArXivScraper:
                     if result.entry_id in seen_ids:
                         continue
 
+                    match = re.match(
+                        r"https?://arxiv.org/abs/([0-9\.]+)v?[0-9]*",
+                        result.entry_id,
+                    )
+                    id = match.group(1) if match else result.entry_id.split("/")[-1]
                     records.append(
                         {
-                            "arxiv_id": result.entry_id.split("/")[-1],
+                            "arxiv_id": id,
                             "title": result.title.replace("\n", " ").strip(),
                             "abstract": result.summary.replace("\n", " ").strip(),
                             "primary_cat": result.primary_category,
@@ -142,7 +148,7 @@ class ArXivScraper:
                             "label": label,
                         }
                     )
-                    seen_ids.add(result.entry_id)
+                    seen_ids.add(id)
                     pbar.update(1)
 
                     if len(records) >= target_with_buffer:

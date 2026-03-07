@@ -12,7 +12,7 @@ tags:
   - computer-science
 pretty_name: ArXiv CS Abstracts
 size_categories:
-  - 10K - 100K
+  - 10K < n < 100K
 ---
 
 # ArXiv CS Abstracts
