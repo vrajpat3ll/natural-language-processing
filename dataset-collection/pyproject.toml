@@ -8,12 +8,16 @@ dependencies = [
     "arxiv>=2.4.1",
     "datasets>=4.6.1",
     "huggingface-hub>=1.5.0",
+    "matplotlib>=3.10.8",
     "nltk>=3.9.3",
     "pandas>=3.0.0",
+    "plotly>=6.6.0",
     "python-dotenv>=1.2.2",
+    "scikit-learn>=1.8.0",
 ]
 
 [dependency-groups]
 dev = [
+    "marimo>=0.20.4",
     "ruff>=0.15.5",
 ]

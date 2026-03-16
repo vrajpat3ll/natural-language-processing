@@ -1,0 +1,404 @@
+\documentclass[10pt,a4paper]{article}
+
+% ── Geometry (smaller margins) ──────────────────────────────────────────────
+\usepackage[a4paper, margin=1.7cm]{geometry}
+
+% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{parskip}
+
+% ── Global spacing compression ───────────────────────────────────────────────
+\linespread{0.96}
+\setlength{\textfloatsep}{6pt}
+\setlength{\intextsep}{6pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+\setlength{\parskip}{3pt}
+
+% ── Colours ─────────────────────────────────────────────────────────────────
+\definecolor{iitblue}{RGB}{0,74,152}
+\definecolor{codelightgray}{RGB}{245,245,245}
+\definecolor{codegreen}{RGB}{40,120,40}
+
+% ── Hyperref ────────────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=iitblue,
+    urlcolor=iitblue,
+    citecolor=iitblue,
+    pdftitle={NLP Lab 1 --- Dataset Collection and Text Processing},
+    pdfauthor={Vraj Patel},
+}
+
+% ── Section formatting (compact) ────────────────────────────────────────────
+\titleformat{\section}{\normalsize\bfseries\color{iitblue}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\small\bfseries}{}{0em}{}
+
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{2pt}
+
+% ── Header / Footer ─────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\textcolor{iitblue}{CS-5-45 \textperiodcentered{} NLP Lab}}
+\fancyhead[R]{\small\textcolor{iitblue}{Lab 1: Dataset Collection \& Text Processing}}
+\fancyfoot[C]{\small\thepage}
+
+% ── Listings (smaller) ──────────────────────────────────────────────────────
+\lstset{
+    basicstyle=\ttfamily\scriptsize,
+    backgroundcolor=\color{codelightgray},
+    frame=single,
+    rulecolor=\color{gray!40},
+    breaklines=true,
+    keywordstyle=\color{iitblue}\bfseries,
+    commentstyle=\color{codegreen},
+    numbers=none,
+    xleftmargin=6pt, xrightmargin=6pt,
+    aboveskip=4pt, belowskip=4pt,
+}
+
+% ── Compact lists ───────────────────────────────────────────────────────────
+\setlist[itemize]{itemsep=2pt, topsep=2pt}
+\setlist[enumerate]{itemsep=2pt, topsep=2pt}
+
+% ── Caption style ───────────────────────────────────────────────────────────
+\captionsetup{font=small, labelfont=bf, labelsep=period}
+% ═══════════════════════════════════════════════════════════════════════════ %
+\begin{document}
+
+% ── Title block ──────────────────────────────────────────────────────────────
+\begin{center}
+    {\LARGE\bfseries\color{iitblue} Natural Language Processing Lab}\\[0.4em]
+    {\large\bfseries Assignment 1: Dataset Collection and Text Processing}\\[0.6em]
+    \rule{\linewidth}{1pt}\\[0.4em]
+    {\normalsize
+        Indian Institute of Technology Jammu\\
+        Department of Computer Science and Engineering\\
+        Course Code: CS-5-45(MO) \quad Semester 2 -- 2025
+    }\\[0.3em]
+    \rule{\linewidth}{0.4pt}\\[0.3em]
+    {
+    \normalsize\textbf{Student:} Vraj Patel \quad
+    \normalsize\textbf{Id:} 2022UCS0100 \quad
+     \textbf{Dataset:} \href{https://huggingface.co/datasets/vrajpat3ll/arxiv-cs-papers}{\texttt{vrajpat3ll/arxiv-cs-papers}} \quad \\
+     \textbf{GitHub:} \href{https://github.com/vrajpat3ll/natural-language-processing}{\texttt{vrajpat3ll/natural-language-processing
+     }}}
+\end{center}
+
+\vspace{0.5em}
+
+% ═══════════════════════════════════════════════════════════════════════════ %
+\section{Task 1 --- Data Collection}
+
+\subsection{Domain and Source}
+
+The corpus was collected from the \textbf{arXiv preprint server} via the official \texttt{arxiv} Python client library, targeting Computer Science abstracts across four thematic categories. The domain was chosen for two reasons: (i) the text is formal, dense, and domain-specific, making it a challenging testbed for NLP methods; (ii) arXiv provides a clean, structured API with well-defined category labels.
+
+\subsection{Label Scheme}
+
+Four balanced classes were constructed by mapping arXiv subject codes:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Label} & \textbf{arXiv codes (examples)} & \textbf{AG News analogue} \\
+\midrule
+NLP/AI        & cs.CL, cs.AI, cs.LG & World \\
+Vision        & cs.CV, eess.IV       & Sports \\
+Systems/Infra & cs.DC, cs.OS, cs.NI  & Business \\
+Algorithms    & cs.DS, cs.CC, cs.CR  & Sci/Tech \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{table}[H]
+\centering
+
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\small
+\caption{Global dataset statistics.}
+\begin{tabular}{ll}
+\toprule
+\textbf{Property} & \textbf{Value} \\
+\midrule
+Number of Documents & 20{,}000 \\
+Number of Sentences & 152{,}434 \\
+Average Sentence Length & 27.88 tokens \\
+Total Tokens & 4{,}249{,}323 \\
+Source & via \texttt{arxiv} Python client \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\small
+\caption{Per-label statistics (5{,}000 documents per class).}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Label} & \textbf{Docs} & \textbf{Sent.} & \textbf{Avg Len} & \textbf{Tokens} \\
+\midrule
+Algorithms    & 5{,}000 & 38{,}574 & 31.41 & 1{,}211{,}438 \\
+NLP/AI        & 5{,}000 & 37{,}207 & 26.80 &   997{,}258 \\
+Systems/Infra & 5{,}000 & 37{,}577 & 27.03 & 1{,}015{,}828 \\
+Vision        & 5{,}000 & 39{,}076 & 26.23 & 1{,}024{,}799 \\
+\midrule
+\textbf{Total} & \textbf{20{,}000} & \textbf{152{,}434} & \textbf{27.88} & \textbf{4{,}249{,}323} \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+
+\end{table}
+
+
+\textbf{Observation.} The Algorithms class yields noticeably longer sentences (31.41 tokens) compared to the other three classes ($\approx$26--27 tokens). This is consistent with the denser, equation-heavy prose typical of theoretical CS writing. The dataset is perfectly class-balanced (25\% per label), eliminating the need for class-weighting in downstream classifiers.
+
+% ═══════════════════════════════════════════════════════════════════════════ %
+\section{Task 2 --- Text Cleaning}
+
+The following preprocessing pipeline was applied using NLTK and standard Python:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Lowercasing:} All text converted to lowercase.
+    \item \textbf{URL and HTML removal:} Regex patterns strip \verb|https?://\S+| and \verb|<[^>]+>| tags.
+    \item \textbf{Special character removal:} Non-alphabetic characters (except spaces) removed.
+    \item \textbf{Whitespace normalisation:} Consecutive spaces collapsed to single space and stripped.
+    \item \textbf{Sentence segmentation:} NLTK \texttt{sent\_tokenize} (Punkt model).
+    \item \textbf{Tokenisation:} NLTK \texttt{word\_tokenize}; only alphabetic tokens retained.
+\end{enumerate}
+
+After cleaning, the processed corpus contains \textbf{2{,}450{,}954 tokens} across \textbf{151{,}881 sentences}. The reduction from 4.25M raw tokens reflects removal of LaTeX math notation, citation strings (e.g.\ \texttt{et al.}, arXiv IDs), and special symbols common in scientific abstracts.
+
+\subsection*{Example: Raw vs.\ Cleaned}
+
+\begin{lstlisting}[language={}, caption={Raw abstract excerpt (Algorithms class).}]
+We study driver's optimal trajectory planning under uncertainty in the duration of a traffic light's green phase. We interpret this as an optimal control problem with an objective of minimizing the expected cost based on the fuel use, discomfort from rapid velocity changes, and time to destination. Treating this in the framework of dynamic programming, we show that the probability distribution on green phase durations gives rise to a sequence of Hamilton-Jacobi-Bellman PDEs, which are then solved numerically to obtain optimal acceleration/braking policy in feedback form. Our numerical examples illustrate the approach and highlight the role of conflicting goals and uncertainty in shaping drivers' behavior. [2201.04521].
+\end{lstlisting}
+
+\begin{lstlisting}[language={}, caption={After cleaning and tokenisation (stopwords retained).}]
+['study', 'driver', 'optimal', 'trajectory', 'planning', 'uncertainty', 'duration', 'traffic', 'light', 'green', 'phase', 'interpret', 'optimal', 'control', 'problem', 'objective', 'minimizing', 'expected', 'cost', 'based', 'fuel', 'use', 'discomfort', 'rapid', 'velocity', 'changes', 'time', 'destination', 'treating', 'framework', 'dynamic', 'programming', 'show', 'probability', 'distribution', 'green', 'phase', 'durations', 'gives', 'rise', 'sequence', 'hamilton', 'jacobi', 'bellman', 'pdes', 'solved', 'numerically', 'obtain', 'optimal', 'acceleration', 'braking', 'policy', 'feedback', 'form', 'numerical', 'examples', 'illustrate', 'approach', 'highlight', 'role', 'conflicting', 'goals', 'uncertainty', 'shaping', 'drivers', 'behavior']
+\end{lstlisting}
+
+% ═══════════════════════════════════════════════════════════════════════════ %
+\section{Task 3 --- Normalisation}
+
+Three normalisation strategies were applied and compared:
+
+\begin{table}[H]
+\centering
+\caption{Comparison of normalisation methods on a sample token sequence.}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Method} & \textbf{Output (sample tokens)} \\
+\midrule
+Original (cleaned)     & propose algorithm center problem metric spaces improving prior \\
+Stopword removal       & propose algorithm center problem metric spaces improving prior \\
+Stemming (Porter)      & propos algorithm center problem metric space improv prior \\
+Lemmatisation (WordNet) & propose algorithm center problem metric space improving prior \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Discussion.}
+
+\begin{itemize}[leftmargin=*]
+    \item \textit{Stopword removal} has limited impact on scientific abstracts since common stopwords (\emph{the}, \emph{is}) are already rare in technical writing; most tokens are content-bearing.
+    \item \textit{Stemming} (Porter) is aggressive---\emph{propose} $\to$ \emph{propos}, \emph{improving} $\to$ \emph{improv}---and can hurt readability and semantic coherence. Useful for high-recall IR tasks.
+    \item \textit{Lemmatisation} preserves valid dictionary forms (\emph{spaces} $\to$ \emph{space}) while being less destructive. Preferred for topic modelling (Lab 3) and embedding tasks (Labs 5--6).
+\end{itemize}
+
+% ═══════════════════════════════════════════════════════════════════════════ %
+\section{Task 4 --- Vocabulary Analysis}
+
+\begin{table}[H]
+\centering
+\caption{Vocabulary statistics (post-cleaning, stopwords retained).}
+\begin{tabular}{lr}
+\toprule
+\textbf{Property} & \textbf{Value} \\
+\midrule
+Total tokens (with repetition) & 2{,}450{,}954 \\
+Vocabulary size (unique types) & 49{,}971 \\
+Hapax legomena                 & 16{,}703 \quad (33.43\% of vocabulary) \\
+Average token frequency        & 49.05 \\
+Most frequent token            & \emph{models} (15{,}156) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Top 20 most frequent tokens.}
+\begin{tabular}{clrclr}
+\toprule
+\textbf{Rank} & \textbf{Token} & \textbf{Freq} &
+\textbf{Rank} & \textbf{Token} & \textbf{Freq} \\
+\midrule
+1  & models      & 15{,}156 & 11 & language    &  8{,}152 \\
+2  & model       & 13{,}594 & 12 & results     &  7{,}706 \\
+3  & based       & 13{,}358 & 13 & learning    &  7{,}696 \\
+4  & data        & 12{,}223 & 14 & across      &  7{,}579 \\
+5  & time        & 11{,}678 & 15 & large       &  7{,}391 \\
+6  & performance & 10{,}068 & 16 & show        &  7{,}311 \\
+7  & algorithm   &  9{,}433 & 17 & using       &  7{,}180 \\
+8  & problem     &  9{,}001 & 18 & propose     &  7{,}140 \\
+9  & framework   &  8{,}927 & 19 & training    &  6{,}499 \\
+10 & network     &  8{,}918 & 20 & high        &  6{,}415 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Frequency Histogram}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{freq_histogram.png}
+    \caption{Top 50 most frequent tokens in the arXiv CS corpus. The steep drop-off from
+    \emph{models} (15{,}156) to \emph{new} (4{,}190) across 50 tokens is characteristic
+    of the Zipfian distribution. Domain-specific terms (\emph{algorithm}, \emph{framework},
+    \emph{language}, \emph{training}) dominate over generic function words, confirming that
+    technical abstracts are information-dense.}
+    \label{fig:freq_hist}
+\end{figure}
+
+\subsection{Zipf's Law}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{zipf_plot.png}
+    \caption{Log--log plot of token frequency vs.\ rank (blue) against the ideal Zipf
+    curve $f \propto 1/r$ (dashed red). The corpus follows Zipf's Law in the
+    mid-rank range (ranks 20--1{,}000) but deviates at both extremes.}
+    \label{fig:zipf}
+\end{figure}
+
+\textbf{Observations from Figures~\ref{fig:freq_hist} and~\ref{fig:zipf}.}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{High-rank deviation (top tokens):} The observed curve lies \emph{above} the ideal Zipf line for ranks 1--20. This is common in domain-specific corpora where a handful of domain keywords (\emph{model}, \emph{algorithm}, \emph{network}) are drastically overrepresented relative to general English.
+    \item \textbf{Mid-range fit:} Ranks 20--1{,}000 follow the power-law slope closely, confirming the corpus obeys Zipf's Law in the bulk.
+    \item \textbf{Low-rank tail deviation:} The sharp drop at ranks $>$10{,}000 reflects the high hapax fraction (33.4\%). Words appearing only once form a discrete tail that cuts off more steeply than a continuous power law predicts.
+
+\end{enumerate}
+
+% ═══════════════════════════════════════════════════════════════════════════ %
+\section{Task 5 --- N-gram Analysis}
+
+\begin{table}[H]
+\centering
+\caption{N-gram coverage statistics.}
+\begin{tabular}{lrr}
+\toprule
+\textbf{N-gram} & \textbf{Unique count} & \textbf{Hapax \%} \\
+\midrule
+Unigrams &     49{,}971 & 33.4\% \\
+Bigrams  & 1{,}180{,}585 & 77.2\% \\
+Trigrams & 1{,}898{,}026 & 94.6\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Top 10 bigrams and trigrams by frequency.}
+\begin{tabular}{clrclr}
+\toprule
+\multicolumn{3}{c}{\textbf{Top Bigrams}} & \multicolumn{3}{c}{\textbf{Top Trigrams}} \\
+\cmidrule(r){1-3}\cmidrule(l){4-6}
+\textbf{Rank} & \textbf{Bigram} & \textbf{Freq} &
+\textbf{Rank} & \textbf{Trigram} & \textbf{Freq} \\
+\midrule
+1  & language models        & 4{,}278 & 1  & large language models    & 2{,}973 \\
+2  & state art              & 3{,}489 & 2  & language models llms     & 1{,}963 \\
+3  & large language         & 3{,}441 & 3  & vision language models   &   591 \\
+4  & real world             & 2{,}664 & 4  & state art performance    &   536 \\
+5  & models llms            & 1{,}968 & 5  & achieves state art       &   533 \\
+6  & extensive experiments  & 1{,}733 & 6  & large language model     &   458 \\
+7  & real time              & 1{,}677 & 7  & extensive experiments demonstrate & 436 \\
+8  & large scale            & 1{,}599 & 8  & experimental results demonstrate  & 384 \\
+9  & fine tuning            & 1{,}495 & 9  & outperforms state art    &   377 \\
+10 & reinforcement learning & 1{,}367 & 10 & state art methods        &   377 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Observations.}
+
+\begin{itemize}[leftmargin=*]
+    \item The trigram \emph{large language models} (2{,}973 occurrences) is the dominant phrase, reflecting the LLM wave that characterises post-2022 CS literature.
+    \item \emph{state art} is the stemmed/stopword-removed form of \emph{state-of-the-art}; this pipeline artefact should be accounted for during feature engineering in Lab 3.
+    \item Bigram hapax rate (77.2\%) and trigram hapax rate (94.6\%) confirm extreme data sparsity. Nearly all observed trigrams appear exactly once, making higher-order language modelling reliant on smoothing or backoff.
+    \item Domain cluster terms (\emph{reinforcement learning}, \emph{fine tuning}, \emph{vision language models}) naturally delineate the four categories, providing strong discriminative signal for the Naive Bayes classifiers in Lab 3.
+\end{itemize}
+
+% ═══════════════════════════════════════════════════════════════════════════ %
+\section{Task 6 --- Train / Validation / Test Split}
+
+A \textbf{stratified split} was performed using \texttt{sklearn.model\_selection.train\_test\_split} with \texttt{RANDOM\_SEED = 42} to ensure full reproducibility across all downstream labs. The splits were saved as CSV files and also published to HuggingFace Hub.
+
+\begin{table}[H]
+\centering
+
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\small
+\caption{Dataset split sizes.}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Split} & \textbf{Documents} & \textbf{\% of total} \\
+\midrule
+Train      & 16{,}000 & 80.0\% \\
+Validation &  2{,}000 & 10.0\% \\
+Test       &  2{,}000 & 10.0\% \\
+\midrule
+\textbf{Total} & \textbf{20{,}000} & \textbf{100.0\%} \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\small
+\caption{Class distribution across splits (stratified on \texttt{label}).}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Class} & \textbf{Train} & \textbf{Val} & \textbf{Test} & \textbf{Train share} \\
+\midrule
+Algorithms    & 4{,}000 & 500 & 500 & 25.0\% \\
+NLP/AI        & 4{,}000 & 500 & 500 & 25.0\% \\
+Systems/Infra & 4{,}000 & 500 & 500 & 25.0\% \\
+Vision        & 4{,}000 & 500 & 500 & 25.0\% \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+
+\end{table}
+
+Stratification ensures each split preserves the 25\% per-class balance, preventing any partition from being enriched or depleted in a particular category. All future labs load pre-split data via a single \texttt{load\_dataset("vrajpat3ll/arxiv-cs-papers")} call.
+
+% ═══════════════════════════════════════════════════════════════════════════ %
+\section*{Appendix --- Reproducibility}
+
+All experiments use \texttt{RANDOM\_SEED = 42}. Plots are written to \texttt{plots/} and splits to \texttt{data/splits/}. The published HuggingFace dataset (\href{https://huggingface.co/datasets/vrajpat3ll/arxiv-cs-papers}{\texttt{vrajpat3ll/arxiv-cs-papers}}) contains all the samples.
+
+Read the README.md file to find the commands you can run.
+
+\end{document}

@@ -162,8 +162,10 @@ class DatasetAnalyzer:
     def print(self) -> str:
         """Print the assignment-style summary table to stdout."""
         stats = self.global_stats()
-        col_w = 30
-        val_w = 20
+        
+        # Calculate dynamic column widths based on content
+        col_w = max(len(prop) for prop in stats.keys()) + 2
+        val_w = max(len(f"{val:,}" if isinstance(val, int) else str(val)) for val in stats.values()) + 2
         sep = "+" + "-" * col_w + "+" + "-" * val_w + "+"
 
         output = []

@@ -28,7 +28,7 @@ class ArXivScraper:
     Parameters
     ----------
     label_groups : dict[str, list[str]] | None
-        Mapping of label name → list of arXiv category codes.
+        Mapping of label name -> list of arXiv category codes.
     papers_per_class : int
         Target number of papers per label.
     seed : int
@@ -107,40 +107,38 @@ class ArXivScraper:
         return df
 
     def _fetch_group(self, label: str, categories: list[str]) -> list[dict]:
-        """Fetch papers for a single group and its categories."""
         records = []
         seen_ids = set()
 
-        # Fetch more than needed to account for:
-        # 1. Duplicates within the group (across categories)
-        # 2. Global deduplication (papers in multiple groups)
         target_with_buffer = int(self.papers_per_class * 1.2)
 
         for cat in categories:
-            # We search for the full buffered target in each category.
-            # This ensures that even if some categories have fewer papers or many
-            # duplicates, we can fulfill the quota from other categories in the group.
+            remaining = target_with_buffer - len(records)
+            if remaining <= 0:
+                break
+
             search = arxiv.Search(
-                query=f"cat:{cat}",
-                max_results=target_with_buffer,
+                query=" OR ".join([f"cat:{c}" for c in categories]),
+                max_results=remaining * 2,
                 sort_by=arxiv.SortCriterion.SubmittedDate,
             )
 
-            with tqdm(
-                total=target_with_buffer, desc=f"  {cat}", leave=False, unit="paper"
-            ) as pbar:
+            with tqdm(total=remaining * 2, desc=f"{label}:{cat}", leave=True) as pbar:
                 for result in self.client.results(search):
-                    if result.entry_id in seen_ids:
-                        continue
-
                     match = re.match(
                         r"https?://arxiv.org/abs/([0-9\.]+)v?[0-9]*",
                         result.entry_id,
                     )
-                    id = match.group(1) if match else result.entry_id.split("/")[-1]
+                    arxiv_id = (
+                        match.group(1) if match else result.entry_id.split("/")[-1]
+                    )
+
+                    if arxiv_id in seen_ids:
+                        continue
+
                     records.append(
                         {
-                            "arxiv_id": id,
+                            "arxiv_id": arxiv_id,
                             "title": result.title.replace("\n", " ").strip(),
                             "abstract": result.summary.replace("\n", " ").strip(),
                             "primary_cat": result.primary_category,
@@ -148,20 +146,22 @@ class ArXivScraper:
                             "label": label,
                         }
                     )
-                    seen_ids.add(id)
+                    seen_ids.add(arxiv_id)
                     pbar.update(1)
 
                     if len(records) >= target_with_buffer:
                         break
 
-            if len(records) >= target_with_buffer:
-                break
+        records.sort(key=lambda x: x["arxiv_id"], reverse=True)
 
         return records[:target_with_buffer]
 
     def _post_process(self, df: pd.DataFrame) -> pd.DataFrame:
         """Deduplicate and balance class sizes."""
-        df = df.drop_duplicates(subset="arxiv_id")
+        df = df.drop_duplicates(
+            subset=["arxiv_id", "title"],
+            keep="first",
+        )
 
         # Ensure we have exactly papers_per_class or less for each label.
         # We sample indices to avoid losing columns like 'label' due to groupby behaviors.
@@ -175,7 +175,9 @@ class ArXivScraper:
             .index.get_level_values(1)
         )
 
-        return df.loc[sampled_indices].reset_index(drop=True)
+        df = df.loc[sampled_indices].reset_index(drop=True)
+        df = df.sort_values("arxiv_id", ascending=False)
+        return df
 
     def save_parquet(self, path: Path) -> None:
         """Save to Parquet (primary format)."""

@@ -1,0 +1,3 @@
+model,token_accuracy,sentence_accuracy
+Baseline (MFT),0.8946,0.1276
+HMM,0.8453,0.0765

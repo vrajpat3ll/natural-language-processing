@@ -1,0 +1,97 @@
+==================================================
+LDA Results — ag_news
+==================================================
+ Topics  Perplexity  Coherence (CV)
+      5     -8.2278          0.4909
+     10     -8.7362          0.4758
+     20    -10.5805          0.4837
+
+--- Top 10 words per topic (k=5) ---
+  Topic  0: ap, game, first, season, new, win, team, night, two, one
+  Topic  1: quot, ap, new, president, bush, world, may, space, first, could
+  Topic  2: lt, gt, new, b, microsoft, software, internet, company, service, computer
+  Topic  3: reuters, said, oil, us, new, stocks, prices, percent, company, inc
+  Topic  4: said, iraq, reuters, us, minister, two, government, u, killed, people
+
+--- Top 10 words per topic (k=10) ---
+  Topic  0: new, deal, one, could, us, mobile, next, million, year, announced
+  Topic  1: ap, president, china, bush, state, afp, european, states, united, election
+  Topic  2: lt, gt, b, p, stores, font, size, href, dell, face
+  Topic  3: oil, prices, us, report, new, dollar, high, week, record, economic
+  Topic  4: said, iraq, reuters, people, two, u, killed, us, iraqi, officials
+  Topic  5: quot, former, court, chief, india, bid, test, australia, oracle, executive
+  Topic  6: first, game, ap, two, last, team, three, win, season, night
+  Topic  7: microsoft, software, new, internet, computer, service, search, com, online, technology
+  Topic  8: reuters, said, inc, company, stocks, u, percent, quarter, york, sales
+  Topic  9: space, press, canadian, found, florida, nasa, arafat, scientists, canada, hurricane
+
+--- Top 10 words per topic (k=20) ---
+  Topic  0: million, deal, us, ibm, help, air, cut, jobs, pc, power
+  Topic  1: cup, final, test, england, olympic, second, round, athens, wins, open
+  Topic  2: microsoft, security, system, windows, version, claims, software, support, operating, server
+  Topic  3: us, report, according, russia, global, russian, federal, economy, economic, september
+  Topic  4: iraq, people, said, killed, city, iraqi, police, least, us, al
+  Topic  5: former, chief, said, drug, found, executive, head, scientists, board, ceo
+  Topic  6: ap, game, season, night, team, win, sunday, lead, league, victory
+  Topic  7: lt, gt, b, search, google, oracle, p, linux, e, peoplesoft
+  Topic  8: company, said, inc, internet, corp, new, business, group, announced, software
+  Topic  9: space, florida, nasa, arafat, hurricane, school, lost, toronto, ivan, yasser
+  Topic 10: reuters, stocks, u, percent, quarter, sales, third, profit, said, york
+  Topic 11: new, quot, first, year, one, world, two, last, time, yesterday
+  Topic 12: court, open, press, canadian, source, case, hostage, sun, canada, judge
+  Topic 13: india, energy, indian, council, spam, visit, raised, prison, singh, ground
+  Topic 14: oil, prices, dollar, record, us, crude, interest, high, euro, price
+  Topic 15: president, bush, election, john, washington, presidential, house, party, vote, general
+  Topic 16: said, united, afp, minister, government, reuters, states, talks, country, prime
+  Topic 17: european, europe, trade, eu, public, france, french, commission, meeting, exchange
+  Topic 18: charged, fired, green, fallujah, indonesia, grand, offensive, suspected, event, woman
+  Topic 19: china, japan, apple, intel, media, japanese, tokyo, sell, tv, chinese
+
+==================================================
+LDA Results — arxiv
+==================================================
+ Topics  Perplexity  Coherence (CV)
+      5     -7.7390          0.5521
+     10     -7.7874          0.5195
+     20     -7.9726          0.4893
+
+--- Top 10 words per topic (k=5) ---
+  Topic  0: network, networks, based, data, performance, communication, time, paper, system, proposed
+  Topic  1: models, language, reasoning, model, llms, large, across, llm, based, performance
+  Topic  2: models, model, based, training, image, methods, framework, propose, 3d, performance
+  Topic  3: graph, problem, algorithm, time, graphs, approximation, set, algorithms, vertex, edge
+  Topic  4: algorithm, problem, algorithms, time, optimal, show, number, data, model, complexity
+
+--- Top 10 words per topic (k=10) ---
+  Topic  0: reasoning, models, language, agent, framework, visual, tasks, multi, large, agents
+  Topic  1: data, retrieval, detection, based, rag, privacy, attack, attacks, systems, information
+  Topic  2: image, 3d, based, methods, images, framework, spatial, object, model, semantic
+  Topic  3: graph, problem, time, algorithm, graphs, approximation, set, number, vertex, algorithms
+  Topic  4: algorithm, algorithms, problem, time, optimal, show, bound, complexity, number, random
+  Topic  5: network, networks, based, communication, performance, data, time, paper, system, proposed
+  Topic  6: training, model, models, memory, inference, performance, propose, based, methods, efficient
+  Topic  7: data, models, model, learning, dataset, performance, clinical, classification, datasets, training
+  Topic  8: models, language, llms, model, llm, across, evaluation, large, human, based
+  Topic  9: space, information, representations, structure, models, embeddings, latent, distribution, analysis, embedding
+
+--- Top 10 words per topic (k=20) ---
+  Topic  0: agent, ai, agents, research, framework, systems, challenges, world, models, real
+  Topic  1: analysis, study, social, human, behavior, findings, using, review, research, detection
+  Topic  2: accuracy, clinical, segmentation, prediction, imaging, medical, deep, images, across, using
+  Topic  3: graph, graphs, problem, time, algorithm, set, vertex, edge, vertices, number
+  Topic  4: algorithm, problem, optimal, algorithms, approximation, bound, show, setting, known, lower
+  Topic  5: network, networks, communication, based, energy, proposed, wireless, performance, resource, paper
+  Topic  6: network, data, time, based, traffic, latency, system, networks, communication, real
+  Topic  7: data, models, learning, model, training, datasets, dataset, performance, task, tasks
+  Topic  8: models, llms, llm, evaluation, model, large, based, human, language, safety
+  Topic  9: uncertainty, information, n, states, c, item, sequential, semcom, cache, e
+  Topic 10: time, algorithm, algorithms, space, data, queries, query, size, number, using
+  Topic 11: training, model, models, inference, propose, performance, attention, efficiency, efficient, methods
+  Topic 12: detection, adversarial, security, attacks, attack, model, routing, based, network, detect
+  Topic 13: quantum, ran, open, classical, state, entanglement, radio, using, states, link
+  Topic 14: k, spectral, analysis, clustering, points, log, dimensional, space, p, distribution
+  Topic 15: reasoning, models, language, llms, retrieval, model, context, llm, across, knowledge
+  Topic 16: language, languages, speech, models, text, llms, linguistic, english, multilingual, human
+  Topic 17: 3d, based, methods, semantic, spatial, object, framework, image, temporal, existing
+  Topic 18: visual, reasoning, models, video, text, multimodal, language, generation, image, training
+  Topic 19: matrix, linear, rank, sparse, order, matrices, series, decomposition, multiplication, subspace

@@ -73,7 +73,7 @@ class DatasetUploader:
         log.info(f"Preparing dataset for Hub: {target_repo}")
 
         # Use fixed label order for consistent indexing across all runs
-        from scraping.scraper import DEFAULT_LABEL_GROUPS
+        from src.scraping.scraper import DEFAULT_LABEL_GROUPS
         label_names = sorted(DEFAULT_LABEL_GROUPS.keys())
         label2id = {name: i for i, name in enumerate(label_names)}
 

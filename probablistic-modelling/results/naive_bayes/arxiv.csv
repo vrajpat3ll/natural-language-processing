@@ -1,0 +1,4 @@
+Representation,Accuracy,Macro F1,Training Time (s)
+Binary BoW,0.9185,0.9186,0.018
+Term Frequency,0.9325,0.9326,0.011
+TF-IDF,0.932,0.9321,0.018

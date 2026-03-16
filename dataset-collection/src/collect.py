@@ -68,7 +68,7 @@ def parse_args() -> argparse.Namespace:
         help="Directory to save the files",
     )
 
-    # HF Hub args
+    # HF Hub args (not to be used by others)
     parser.add_argument("--push", action="store_true", help="Push to HuggingFace Hub")
     parser.add_argument("--repo-id", type=str, help="HuggingFace repository ID")
     parser.add_argument("--private", action="store_true", help="Make Hub repo private")
