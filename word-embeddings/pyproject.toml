@@ -1,0 +1,15 @@
+[project]
+name = "word-embeddings"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.8",
+    "nltk>=3.9.3",
+    "pandas>=3.0.1",
+    "scikit-learn>=1.8.0",
+    "gensim>=4.3.3",
+    "tqdm>=4.67.1",
+    "mittens>=0.2.0",
+]
