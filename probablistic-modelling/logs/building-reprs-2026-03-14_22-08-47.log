@@ -1,0 +1,53 @@
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] ============================================================
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] Preparing dataset: ag_news
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] ============================================================
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] Deleted saved vectorizer: 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_binary_bow.joblib'.
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] Deleted saved vectorizer: 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_tf.joblib'.
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] Deleted saved vectorizer: 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_tfidf.joblib'.
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] Step 1/2 — Loading local data ...
+2026-03-14 22:08:48 [INFO] [loader.py] Loading AG News from 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\data\processed\ag_news.csv'.
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] DataSplit ready: DataSplit(train=108000, val=12000, test=7600)
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] Label distribution:
+        total      0      1      2      3
+split                                    
+train  108000  27000  27000  27000  27000
+val     12000   3000   3000   3000   3000
+test     7600   1900   1900   1900   1900
+2026-03-14 22:08:48 [INFO] [scripts\prepare_data.py] Step 2/2 — Building vectorizers on training split (108000 docs) ...
+2026-03-14 22:08:48 [INFO] [representations\vectorizers.py] Fitting Binary BoW vectorizer on 108000 documents ...
+2026-03-14 22:08:51 [INFO] [representations\vectorizers.py]   -> vocabulary size: 39066
+2026-03-14 22:08:51 [INFO] [representations\vectorizers.py] Fitting Term Frequency vectorizer on 108000 documents ...
+2026-03-14 22:08:54 [INFO] [representations\vectorizers.py]   -> vocabulary size: 39066
+2026-03-14 22:08:54 [INFO] [representations\vectorizers.py] Fitting TF-IDF vectorizer on 108000 documents ...
+2026-03-14 22:08:57 [INFO] [representations\vectorizers.py]   -> vocabulary size: 39066
+2026-03-14 22:08:57 [INFO] [representations\vectorizers.py] Saved Binary BoW vectorizer to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_binary_bow.joblib'.
+2026-03-14 22:08:58 [INFO] [representations\vectorizers.py] Saved Term Frequency vectorizer to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_tf.joblib'.
+2026-03-14 22:08:59 [INFO] [representations\vectorizers.py] Saved TF-IDF vectorizer to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_tfidf.joblib'.
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] Done — ag_news prepared in 11.0s.
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] ============================================================
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] Preparing dataset: arxiv
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] ============================================================
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] Deleted saved vectorizer: 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\arxiv_binary_bow.joblib'.
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] Deleted saved vectorizer: 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\arxiv_tf.joblib'.
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] Deleted saved vectorizer: 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\arxiv_tfidf.joblib'.
+2026-03-14 22:08:59 [INFO] [scripts\prepare_data.py] Step 1/2 — Loading local data ...
+2026-03-14 22:08:59 [INFO] [loader.py] Loading arXiv from pre-split CSVs in 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\data\splits'.
+2026-03-14 22:09:00 [INFO] [scripts\prepare_data.py] DataSplit ready: DataSplit(train=16000, val=2000, test=2000)
+2026-03-14 22:09:00 [INFO] [scripts\prepare_data.py] Label distribution:
+       total     0     1     2     3
+split                               
+train  16000  4000  4000  4000  4000
+val     2000   500   500   500   500
+test    2000   500   500   500   500
+2026-03-14 22:09:00 [INFO] [scripts\prepare_data.py] Step 2/2 — Building vectorizers on training split (16000 docs) ...
+2026-03-14 22:09:00 [INFO] [representations\vectorizers.py] Fitting Binary BoW vectorizer on 16000 documents ...
+2026-03-14 22:09:02 [INFO] [representations\vectorizers.py]   -> vocabulary size: 21991
+2026-03-14 22:09:02 [INFO] [representations\vectorizers.py] Fitting Term Frequency vectorizer on 16000 documents ...
+2026-03-14 22:09:04 [INFO] [representations\vectorizers.py]   -> vocabulary size: 21991
+2026-03-14 22:09:04 [INFO] [representations\vectorizers.py] Fitting TF-IDF vectorizer on 16000 documents ...
+2026-03-14 22:09:07 [INFO] [representations\vectorizers.py]   -> vocabulary size: 21991
+2026-03-14 22:09:07 [INFO] [representations\vectorizers.py] Saved Binary BoW vectorizer to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\arxiv_binary_bow.joblib'.
+2026-03-14 22:09:07 [INFO] [representations\vectorizers.py] Saved Term Frequency vectorizer to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\arxiv_tf.joblib'.
+2026-03-14 22:09:08 [INFO] [representations\vectorizers.py] Saved TF-IDF vectorizer to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\arxiv_tfidf.joblib'.
+2026-03-14 22:09:08 [INFO] [scripts\prepare_data.py] Done — arxiv prepared in 9.0s.
+2026-03-14 22:09:08 [INFO] [scripts\prepare_data.py] All datasets prepared in 20.0s.

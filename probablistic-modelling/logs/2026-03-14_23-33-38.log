@@ -1,0 +1,24 @@
+2026-03-14 23:33:38 [INFO] [scripts\lda.py] Loading ag_news ...
+2026-03-14 23:33:38 [INFO] [loader.py] Loading AG News from 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\data\processed\ag_news.csv'.
+2026-03-14 23:33:39 [INFO] [scripts\lda.py]   DataSplit(train=108000, val=12000, test=7600)
+2026-03-14 23:33:39 [INFO] [topic_modeling\lda.py] ============================================================
+2026-03-14 23:33:39 [INFO] [topic_modeling\lda.py] LDA experiments — dataset: ag_news
+2026-03-14 23:33:39 [INFO] [topic_modeling\lda.py] ============================================================
+2026-03-14 23:33:46 [INFO] [topic_modeling\lda.py] Gensim corpus built — vocab: 24261 tokens, docs: 108000
+2026-03-14 23:33:46 [INFO] [topic_modeling\lda.py] Cache hit — loading LDA (k=5) for ag_news.
+2026-03-14 23:34:12 [INFO] [topic_modeling\lda.py]   k=5 -> perplexity: -8.2278 | coherence (CV): 0.4909
+2026-03-14 23:34:12 [INFO] [topic_modeling\lda.py] Cache hit — loading LDA (k=10) for ag_news.
+2026-03-14 23:34:31 [INFO] [topic_modeling\lda.py]   k=10 -> perplexity: -8.7362 | coherence (CV): 0.4758
+2026-03-14 23:34:31 [INFO] [topic_modeling\lda.py] Cache hit — loading LDA (k=20) for ag_news.
+2026-03-14 23:34:53 [INFO] [topic_modeling\lda.py]   k=20 -> perplexity: -10.5805 | coherence (CV): 0.4837
+2026-03-14 23:34:53 [INFO] [topic_modeling\lda.py] Metrics saved to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\results\lda\ag_news.csv'.
+2026-03-14 23:34:53 [INFO] [topic_modeling\lda.py] Top words (k=5) saved to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\results\lda\ag_news_topics_5.csv'.
+2026-03-14 23:34:53 [INFO] [topic_modeling\lda.py] Top words (k=10) saved to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\results\lda\ag_news_topics_10.csv'.
+2026-03-14 23:34:53 [INFO] [topic_modeling\lda.py] Top words (k=20) saved to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\results\lda\ag_news_topics_20.csv'.
+2026-03-14 23:34:53 [INFO] [topic_modeling\lda.py] LDA results for ag_news:
+ Topics  Perplexity  Coherence (CV)
+      5     -8.2278          0.4909
+     10     -8.7362          0.4758
+     20    -10.5805          0.4837
+2026-03-14 23:34:53 [INFO] [scripts\lda.py] Done — ag_news finished in 73.9s.
+2026-03-14 23:34:53 [INFO] [scripts\lda.py] All LDA experiments completed in 74.8s.

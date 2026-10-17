@@ -1,0 +1,33 @@
+2026-03-28 19:47:38 [INFO] [train_embeddings.py] === Training on arxiv ===
+2026-03-28 19:47:38 [INFO] [loader.py] Loading arXiv from pre-split CSVs in 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\splits'.
+2026-03-28 19:48:05 [INFO] [train_embeddings.py] --- arxiv | Dimension 80 ---
+2026-03-28 19:48:05 [INFO] [train_embeddings.py] Skipping arxiv CBOW 80 (exists)
+2026-03-28 19:48:05 [INFO] [train_embeddings.py] Skipping arxiv Skip-gram 80 (exists)
+2026-03-28 19:48:05 [INFO] [train_embeddings.py] Skipping arxiv FastText 80 (exists)
+2026-03-28 19:48:07 [INFO] [train_embeddings.py] Skipping arxiv GloVe 80 (exists)
+2026-03-28 19:48:07 [INFO] [train_embeddings.py] --- arxiv | Dimension 100 ---
+2026-03-28 19:48:07 [INFO] [train_embeddings.py] Skipping arxiv CBOW 100 (exists)
+2026-03-28 19:48:07 [INFO] [train_embeddings.py] Skipping arxiv Skip-gram 100 (exists)
+2026-03-28 19:48:07 [INFO] [train_embeddings.py] Skipping arxiv FastText 100 (exists)
+2026-03-28 19:48:09 [INFO] [train_embeddings.py] Skipping arxiv GloVe 100 (exists)
+2026-03-28 19:48:09 [INFO] [train_embeddings.py] --- arxiv | Dimension 200 ---
+2026-03-28 19:48:09 [INFO] [train_embeddings.py] Skipping arxiv CBOW 200 (exists)
+2026-03-28 19:48:09 [INFO] [train_embeddings.py] Skipping arxiv Skip-gram 200 (exists)
+2026-03-28 19:48:09 [INFO] [train_embeddings.py] Skipping FastText for arxiv dim 200 to save disk space.
+2026-03-28 19:48:09 [INFO] [train_embeddings.py] Skipping arxiv GloVe 200 (exists)
+2026-03-28 19:48:09 [INFO] [train_embeddings.py] === Training on ag_news ===
+2026-03-28 19:48:09 [INFO] [loader.py] Loading AG News from 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\processed\ag_news.csv'.
+2026-03-28 19:48:43 [INFO] [train_embeddings.py] --- ag_news | Dimension 80 ---
+2026-03-28 19:50:01 [INFO] [train_embeddings.py] Training GloVe (dim=80, vocab=5000)...
+2026-03-28 19:50:01 [INFO] [train_embeddings.py] Training on 4,627,246 non-zero elements.
+2026-03-28 19:50:52 [INFO] [train_embeddings.py] Epoch 1/10, Avg Cost: 0.072450
+2026-03-28 19:51:32 [INFO] [train_embeddings.py] Epoch 2/10, Avg Cost: 0.058491
+2026-03-28 19:52:13 [INFO] [train_embeddings.py] Epoch 3/10, Avg Cost: 0.057228
+2026-03-28 19:52:54 [INFO] [train_embeddings.py] Epoch 4/10, Avg Cost: 0.056613
+2026-03-28 19:53:34 [INFO] [train_embeddings.py] Epoch 5/10, Avg Cost: 0.056228
+2026-03-28 19:54:15 [INFO] [train_embeddings.py] Epoch 6/10, Avg Cost: 0.055964
+2026-03-28 19:54:55 [INFO] [train_embeddings.py] Epoch 7/10, Avg Cost: 0.055768
+2026-03-28 19:55:36 [INFO] [train_embeddings.py] Epoch 8/10, Avg Cost: 0.055598
+2026-03-28 19:56:17 [INFO] [train_embeddings.py] Epoch 9/10, Avg Cost: 0.055400
+2026-03-28 19:56:57 [INFO] [train_embeddings.py] Epoch 10/10, Avg Cost: 0.055092
+2026-03-28 19:56:57 [INFO] [train_embeddings.py] --- ag_news | Dimension 100 ---

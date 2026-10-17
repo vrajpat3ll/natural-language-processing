@@ -1,0 +1,40 @@
+2026-03-14 22:17:47 [INFO] [scripts\hmm.py] Loading Penn Treebank ...
+2026-03-14 22:17:47 [INFO] [pos_tagging\corpus.py] Loading Penn Treebank tagged sentences ...
+2026-03-14 22:17:53 [INFO] [pos_tagging\corpus.py] Loaded 3914 sentences from Penn Treebank sample.
+2026-03-14 22:17:53 [INFO] [pos_tagging\corpus.py] Split: train=3131  val=391  test=392
+2026-03-14 22:17:53 [INFO] [scripts\hmm.py] TaggedCorpus(train=3131 sents, val=391 sents, test=392 sents)
+2026-03-14 22:17:53 [INFO] [scripts\hmm.py] Fitting MostFrequentTagBaseline ...
+2026-03-14 22:17:53 [INFO] [pos_tagging\baseline.py] Baseline fitted: vocab=10983 words, default_tag='NN'
+2026-03-14 22:17:53 [INFO] [scripts\hmm.py] Fitting HMMTagger (unk_threshold=5) ...
+2026-03-14 22:17:53 [INFO] [pos_tagging\hmm.py] HMMTagger.fit() — counting corpus statistics ...
+2026-03-14 22:17:53 [INFO] [pos_tagging\hmm.py] Corpus: 3131 sentences, 46 real tags, vocab size=2069 (unk_threshold=5)
+2026-03-14 22:17:53 [INFO] [pos_tagging\hmm.py] HMMTagger fitted successfully.
+2026-03-14 22:17:53 [INFO] [scripts\hmm.py] Evaluating on test split ...
+2026-03-14 22:17:58 [INFO] [scripts\hmm.py] Saved accuracy table to 'results\pos_tagging\accuracy_results.csv'.
+2026-03-14 22:17:58 [INFO] [scripts\hmm.py] Running training-size ablation ...
+2026-03-14 22:17:58 [INFO] [pos_tagging\baseline.py] Baseline fitted: vocab=2804 words, default_tag='NN'
+2026-03-14 22:17:58 [INFO] [pos_tagging\hmm.py] HMMTagger.fit() — counting corpus statistics ...
+2026-03-14 22:17:58 [INFO] [pos_tagging\hmm.py] Corpus: 313 sentences, 41 real tags, vocab size=214 (unk_threshold=5)
+2026-03-14 22:17:58 [INFO] [pos_tagging\hmm.py] HMMTagger fitted successfully.
+2026-03-14 22:18:01 [INFO] [scripts\hmm.py] frac=0.10  sents=313  baseline=0.7806  hmm=0.6716
+2026-03-14 22:18:01 [INFO] [pos_tagging\baseline.py] Baseline fitted: vocab=5087 words, default_tag='NN'
+2026-03-14 22:18:01 [INFO] [pos_tagging\hmm.py] HMMTagger.fit() — counting corpus statistics ...
+2026-03-14 22:18:01 [INFO] [pos_tagging\hmm.py] Corpus: 782 sentences, 45 real tags, vocab size=571 (unk_threshold=5)
+2026-03-14 22:18:01 [INFO] [pos_tagging\hmm.py] HMMTagger fitted successfully.
+2026-03-14 22:18:05 [INFO] [scripts\hmm.py] frac=0.25  sents=782  baseline=0.8397  hmm=0.7401
+2026-03-14 22:18:05 [INFO] [pos_tagging\baseline.py] Baseline fitted: vocab=7603 words, default_tag='NN'
+2026-03-14 22:18:05 [INFO] [pos_tagging\hmm.py] HMMTagger.fit() — counting corpus statistics ...
+2026-03-14 22:18:05 [INFO] [pos_tagging\hmm.py] Corpus: 1565 sentences, 46 real tags, vocab size=1151 (unk_threshold=5)
+2026-03-14 22:18:05 [INFO] [pos_tagging\hmm.py] HMMTagger fitted successfully.
+2026-03-14 22:18:09 [INFO] [scripts\hmm.py] frac=0.50  sents=1565  baseline=0.8700  hmm=0.7947
+2026-03-14 22:18:09 [INFO] [pos_tagging\baseline.py] Baseline fitted: vocab=9461 words, default_tag='NN'
+2026-03-14 22:18:09 [INFO] [pos_tagging\hmm.py] HMMTagger.fit() — counting corpus statistics ...
+2026-03-14 22:18:10 [INFO] [pos_tagging\hmm.py] Corpus: 2348 sentences, 46 real tags, vocab size=1649 (unk_threshold=5)
+2026-03-14 22:18:10 [INFO] [pos_tagging\hmm.py] HMMTagger fitted successfully.
+2026-03-14 22:18:13 [INFO] [scripts\hmm.py] frac=0.75  sents=2348  baseline=0.8832  hmm=0.8277
+2026-03-14 22:18:13 [INFO] [pos_tagging\baseline.py] Baseline fitted: vocab=10983 words, default_tag='NN'
+2026-03-14 22:18:13 [INFO] [pos_tagging\hmm.py] HMMTagger.fit() — counting corpus statistics ...
+2026-03-14 22:18:13 [INFO] [pos_tagging\hmm.py] Corpus: 3131 sentences, 46 real tags, vocab size=2069 (unk_threshold=5)
+2026-03-14 22:18:13 [INFO] [pos_tagging\hmm.py] HMMTagger fitted successfully.
+2026-03-14 22:18:18 [INFO] [scripts\hmm.py] frac=1.00  sents=3131  baseline=0.8952  hmm=0.8453
+2026-03-14 22:18:18 [INFO] [scripts\hmm.py] Saved ablation plot to 'results\pos_tagging\accuracy_vs_training_size.png'.

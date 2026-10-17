@@ -1,0 +1,44 @@
+2026-03-28 16:14:23 [INFO] [train_embeddings.py] Loading and preprocessing data...
+2026-03-28 16:14:23 [INFO] [loader.py] Loading arXiv from pre-split CSVs in 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\splits'.
+2026-03-28 16:14:51 [INFO] [train_embeddings.py] --- Training with dimension 80 ---
+2026-03-28 16:14:51 [INFO] [train_embeddings.py] Skipping CBOW 80 (exists)
+2026-03-28 16:14:51 [INFO] [train_embeddings.py] Skipping Skip-gram 80 (exists)
+2026-03-28 16:14:52 [INFO] [train_embeddings.py] Skipping FastText 80 (exists)
+2026-03-28 16:15:06 [INFO] [train_embeddings.py] Training GloVe (dim=80, vocab=5000)...
+2026-03-28 16:15:06 [INFO] [train_embeddings.py] Training on 4,502,633 non-zero elements.
+2026-03-28 16:16:20 [INFO] [train_embeddings.py] Epoch 1/10, Avg Cost: 0.055031
+2026-03-28 16:18:03 [INFO] [train_embeddings.py] Epoch 2/10, Avg Cost: 0.044957
+2026-03-28 16:19:46 [INFO] [train_embeddings.py] Epoch 3/10, Avg Cost: 0.043931
+2026-03-28 16:21:18 [INFO] [train_embeddings.py] Epoch 4/10, Avg Cost: 0.043310
+2026-03-28 16:22:32 [INFO] [train_embeddings.py] Epoch 5/10, Avg Cost: 0.042865
+2026-03-28 16:24:17 [INFO] [train_embeddings.py] Epoch 6/10, Avg Cost: 0.042530
+2026-03-28 16:25:49 [INFO] [train_embeddings.py] Epoch 7/10, Avg Cost: 0.042262
+2026-03-28 16:27:21 [INFO] [train_embeddings.py] Epoch 8/10, Avg Cost: 0.042036
+2026-03-28 16:28:05 [INFO] [train_embeddings.py] Epoch 9/10, Avg Cost: 0.041814
+2026-03-28 16:28:45 [INFO] [train_embeddings.py] Epoch 10/10, Avg Cost: 0.041547
+2026-03-28 16:28:45 [INFO] [train_embeddings.py] --- Training with dimension 100 ---
+2026-03-28 16:29:43 [INFO] [train_embeddings.py] Training GloVe (dim=100, vocab=5000)...
+2026-03-28 16:29:44 [INFO] [train_embeddings.py] Training on 4,502,633 non-zero elements.
+2026-03-28 16:30:44 [INFO] [train_embeddings.py] Epoch 1/10, Avg Cost: 0.055041
+2026-03-28 16:32:29 [INFO] [train_embeddings.py] Epoch 2/10, Avg Cost: 0.044956
+2026-03-28 16:34:05 [INFO] [train_embeddings.py] Epoch 3/10, Avg Cost: 0.043933
+2026-03-28 16:35:59 [INFO] [train_embeddings.py] Epoch 4/10, Avg Cost: 0.043308
+2026-03-28 16:37:44 [INFO] [train_embeddings.py] Epoch 5/10, Avg Cost: 0.042868
+2026-03-28 16:39:32 [INFO] [train_embeddings.py] Epoch 6/10, Avg Cost: 0.042528
+2026-03-28 16:41:15 [INFO] [train_embeddings.py] Epoch 7/10, Avg Cost: 0.042263
+2026-03-28 16:42:59 [INFO] [train_embeddings.py] Epoch 8/10, Avg Cost: 0.042038
+2026-03-28 16:44:43 [INFO] [train_embeddings.py] Epoch 9/10, Avg Cost: 0.041817
+2026-03-28 16:46:26 [INFO] [train_embeddings.py] Epoch 10/10, Avg Cost: 0.041549
+2026-03-28 16:46:27 [INFO] [train_embeddings.py] --- Training with dimension 200 ---
+2026-03-28 16:48:36 [INFO] [train_embeddings.py] Training GloVe (dim=200, vocab=5000)...
+2026-03-28 16:48:36 [INFO] [train_embeddings.py] Training on 4,502,633 non-zero elements.
+2026-03-28 16:50:14 [INFO] [train_embeddings.py] Epoch 1/10, Avg Cost: 0.055087
+2026-03-28 16:50:56 [INFO] [train_embeddings.py] Epoch 2/10, Avg Cost: 0.044956
+2026-03-28 16:52:18 [INFO] [train_embeddings.py] Epoch 3/10, Avg Cost: 0.043934
+2026-03-28 16:54:17 [INFO] [train_embeddings.py] Epoch 4/10, Avg Cost: 0.043311
+2026-03-28 16:56:22 [INFO] [train_embeddings.py] Epoch 5/10, Avg Cost: 0.042868
+2026-03-28 16:58:41 [INFO] [train_embeddings.py] Epoch 6/10, Avg Cost: 0.042537
+2026-03-28 17:00:41 [INFO] [train_embeddings.py] Epoch 7/10, Avg Cost: 0.042277
+2026-03-28 17:03:05 [INFO] [train_embeddings.py] Epoch 8/10, Avg Cost: 0.042067
+2026-03-28 17:05:04 [INFO] [train_embeddings.py] Epoch 9/10, Avg Cost: 0.041885
+2026-03-28 17:06:41 [INFO] [train_embeddings.py] Epoch 10/10, Avg Cost: 0.041704

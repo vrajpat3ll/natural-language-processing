@@ -1,0 +1,27 @@
+2026-03-28 19:58:30 [INFO] [train_embeddings.py] === Training on arxiv ===
+2026-03-28 19:58:30 [INFO] [loader.py] Loading arXiv from pre-split CSVs in 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\splits'.
+2026-03-28 19:58:58 [INFO] [train_embeddings.py] --- arxiv | Dimension 80 ---
+2026-03-28 19:58:58 [INFO] [train_embeddings.py] Skipping arxiv CBOW 80 (exists)
+2026-03-28 19:58:59 [INFO] [train_embeddings.py] Skipping arxiv Skip-gram 80 (exists)
+2026-03-28 19:58:59 [INFO] [train_embeddings.py] Skipping arxiv FastText 80 (exists)
+2026-03-28 19:59:00 [INFO] [train_embeddings.py] Skipping arxiv GloVe 80 (exists)
+2026-03-28 19:59:00 [INFO] [train_embeddings.py] --- arxiv | Dimension 100 ---
+2026-03-28 19:59:00 [INFO] [train_embeddings.py] Skipping arxiv CBOW 100 (exists)
+2026-03-28 19:59:00 [INFO] [train_embeddings.py] Skipping arxiv Skip-gram 100 (exists)
+2026-03-28 19:59:00 [INFO] [train_embeddings.py] Skipping arxiv FastText 100 (exists)
+2026-03-28 19:59:02 [INFO] [train_embeddings.py] Skipping arxiv GloVe 100 (exists)
+2026-03-28 19:59:02 [INFO] [train_embeddings.py] --- arxiv | Dimension 200 ---
+2026-03-28 19:59:02 [INFO] [train_embeddings.py] Skipping arxiv CBOW 200 (exists)
+2026-03-28 19:59:02 [INFO] [train_embeddings.py] Skipping arxiv Skip-gram 200 (exists)
+2026-03-28 19:59:03 [INFO] [train_embeddings.py] Skipping FastText for arxiv dim 200 to save disk space.
+2026-03-28 19:59:03 [INFO] [train_embeddings.py] Skipping arxiv GloVe 200 (exists)
+2026-03-28 19:59:03 [INFO] [train_embeddings.py] === Training on ag_news ===
+2026-03-28 19:59:03 [INFO] [loader.py] Loading AG News from 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\processed\ag_news.csv'.
+2026-03-28 19:59:41 [INFO] [train_embeddings.py] --- ag_news | Dimension 80 ---
+2026-03-28 19:59:41 [INFO] [train_embeddings.py] Skipping ag_news CBOW 80 (exists)
+2026-03-28 19:59:42 [INFO] [train_embeddings.py] Skipping ag_news Skip-gram 80 (exists)
+2026-03-28 19:59:42 [INFO] [train_embeddings.py] Skipping ag_news FastText 80 (exists)
+2026-03-28 19:59:46 [INFO] [train_embeddings.py] Skipping ag_news GloVe 80 (exists)
+2026-03-28 19:59:46 [INFO] [train_embeddings.py] --- ag_news | Dimension 100 ---
+2026-03-28 19:59:46 [INFO] [train_embeddings.py] Skipping ag_news CBOW 100 (exists)
+2026-03-28 19:59:46 [INFO] [train_embeddings.py] Skipping ag_news Skip-gram 100 (exists)

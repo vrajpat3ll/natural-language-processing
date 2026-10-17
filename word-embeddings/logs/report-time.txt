@@ -1,0 +1,14 @@
+=== Part 2: Training Report ===                                                                                                                      │
+│    Method  Dim Training Time  Vocab Size                                                                                                             │
+│      CBOW   80           N/A       15943                                                                                                             │
+│ Skip-gram   80           N/A       15943                                                                                                             │
+│  FastText   80           N/A       15943                                                                                                             │
+│     GloVe   80       832.04s        5000                                                                                                             │
+│      CBOW  100         4.99s       15943                                                                                                             │
+│ Skip-gram  100        13.28s       15943                                                                                                             │
+│  FastText  100        25.90s       15943                                                                                                             │
+│     GloVe  100      1016.21s        5000                                                                                                             │
+│      CBOW  200        10.15s       15943                                                                                                             │
+│ Skip-gram  200        26.27s       15943                                                                                                             │
+│  FastText  200        68.81s       15943                                                                                                             │
+│     GloVe  200      1105.45s        5000

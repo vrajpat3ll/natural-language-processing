@@ -1,0 +1,31 @@
+2026-03-14 22:06:29 [INFO] [scripts\classify.py] ============================================================
+2026-03-14 22:06:29 [INFO] [scripts\classify.py] Running Naive Bayes — dataset: ag_news
+2026-03-14 22:06:29 [INFO] [scripts\classify.py] ============================================================
+2026-03-14 22:06:29 [INFO] [scripts\classify.py] Loading ag_news split ...
+2026-03-14 22:06:29 [INFO] [loader.py] Loading AG News from 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\data\processed\ag_news.csv'.
+2026-03-14 22:06:30 [INFO] [scripts\classify.py]   DataSplit(train=108000, val=12000, test=7600)
+2026-03-14 22:06:30 [INFO] [scripts\classify.py] Loading vectorizers for ag_news ...
+2026-03-14 22:06:30 [INFO] [representations\vectorizers.py] Loaded Binary BoW vectorizer from 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_binary_bow.joblib'.
+2026-03-14 22:06:30 [INFO] [representations\vectorizers.py] Loaded Term Frequency vectorizer from 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_tf.joblib'.
+2026-03-14 22:06:31 [INFO] [representations\vectorizers.py] Loaded TF-IDF vectorizer from 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\representations\saved\ag_news_tfidf.joblib'.
+2026-03-14 22:06:31 [INFO] [naive_bayes\classifier.py] ============================================================
+2026-03-14 22:06:31 [INFO] [naive_bayes\classifier.py] Naive Bayes experiments -- dataset: ag_news
+2026-03-14 22:06:31 [INFO] [naive_bayes\classifier.py]   Train: 108000 | Val: 12000 | Test: 7600
+2026-03-14 22:06:31 [INFO] [naive_bayes\classifier.py] ============================================================
+2026-03-14 22:06:31 [INFO] [naive_bayes\classifier.py] Running Naive Bayes with Binary BoW ...
+2026-03-14 22:06:33 [INFO] [naive_bayes\classifier.py] Saved model to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\naive_bayes\saved\ag_news_binary_bow.joblib'.
+2026-03-14 22:06:33 [INFO] [naive_bayes\classifier.py]   Binary BoW -> Accuracy: 0.8974 | Macro F1: 0.8971 | Train time: 0.027s
+2026-03-14 22:06:33 [INFO] [naive_bayes\classifier.py] Running Naive Bayes with Term Frequency ...
+2026-03-14 22:06:36 [INFO] [naive_bayes\classifier.py] Saved model to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\naive_bayes\saved\ag_news_tf.joblib'.
+2026-03-14 22:06:36 [INFO] [naive_bayes\classifier.py]   Term Frequency -> Accuracy: 0.9013 | Macro F1: 0.9010 | Train time: 0.030s
+2026-03-14 22:06:36 [INFO] [naive_bayes\classifier.py] Running Naive Bayes with TF-IDF ...
+2026-03-14 22:06:39 [INFO] [naive_bayes\classifier.py] Saved model to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\naive_bayes\saved\ag_news_tfidf.joblib'.
+2026-03-14 22:06:39 [INFO] [naive_bayes\classifier.py]   TF-IDF -> Accuracy: 0.9018 | Macro F1: 0.9016 | Train time: 0.029s
+2026-03-14 22:06:39 [INFO] [naive_bayes\classifier.py] Results for ag_news:
+Representation  Accuracy  Macro F1  Training Time (s)
+    Binary BoW    0.8974    0.8971              0.027
+Term Frequency    0.9013    0.9010              0.030
+        TF-IDF    0.9018    0.9016              0.029
+2026-03-14 22:06:39 [INFO] [scripts\classify.py] Results saved to 'C:\CODING\personal\college\CS545\natural-language-processing\probablistic-modelling\results\naive_bayes\ag_news.csv'.
+2026-03-14 22:06:39 [INFO] [scripts\classify.py] Done — ag_news finished in 9.7s.
+2026-03-14 22:06:39 [INFO] [scripts\classify.py] All experiments completed in 9.7s.

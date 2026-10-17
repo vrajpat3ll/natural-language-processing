@@ -1,0 +1,2 @@
+2026-03-28 23:09:20 [INFO] [loader.py] Loading arXiv from pre-split CSVs in 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\splits'.
+2026-03-28 23:09:46 [INFO] [loader.py] Loading AG News from 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\processed\ag_news.csv'.

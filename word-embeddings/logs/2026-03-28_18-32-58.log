@@ -1,0 +1,29 @@
+2026-03-28 18:32:58 [INFO] [train_embeddings.py] === Training on arxiv ===
+2026-03-28 18:32:58 [INFO] [loader.py] Loading arXiv from pre-split CSVs in 'C:\CODING\personal\college\CS545\natural-language-processing\word-embeddings\data\splits'.
+2026-03-28 18:33:46 [INFO] [train_embeddings.py] --- arxiv | Dimension 80 ---
+2026-03-28 18:35:17 [INFO] [train_embeddings.py] Training GloVe (dim=80, vocab=5000)...
+2026-03-28 18:35:18 [INFO] [train_embeddings.py] Training on 4,502,633 non-zero elements.
+2026-03-28 18:37:03 [INFO] [train_embeddings.py] Epoch 1/10, Avg Cost: 0.055003
+2026-03-28 18:38:47 [INFO] [train_embeddings.py] Epoch 2/10, Avg Cost: 0.044952
+2026-03-28 18:40:32 [INFO] [train_embeddings.py] Epoch 3/10, Avg Cost: 0.043930
+2026-03-28 18:42:18 [INFO] [train_embeddings.py] Epoch 4/10, Avg Cost: 0.043311
+2026-03-28 18:44:01 [INFO] [train_embeddings.py] Epoch 5/10, Avg Cost: 0.042863
+2026-03-28 18:45:45 [INFO] [train_embeddings.py] Epoch 6/10, Avg Cost: 0.042534
+2026-03-28 18:47:38 [INFO] [train_embeddings.py] Epoch 7/10, Avg Cost: 0.042268
+2026-03-28 18:49:39 [INFO] [train_embeddings.py] Epoch 8/10, Avg Cost: 0.042049
+2026-03-28 18:51:46 [INFO] [train_embeddings.py] Epoch 9/10, Avg Cost: 0.041843
+2026-03-28 18:53:31 [INFO] [train_embeddings.py] Epoch 10/10, Avg Cost: 0.041614
+2026-03-28 18:53:32 [INFO] [train_embeddings.py] --- arxiv | Dimension 100 ---
+2026-03-28 18:55:03 [INFO] [train_embeddings.py] Training GloVe (dim=100, vocab=5000)...
+2026-03-28 18:55:04 [INFO] [train_embeddings.py] Training on 4,502,633 non-zero elements.
+2026-03-28 18:56:48 [INFO] [train_embeddings.py] Epoch 1/10, Avg Cost: 0.055042
+2026-03-28 18:58:34 [INFO] [train_embeddings.py] Epoch 2/10, Avg Cost: 0.044950
+2026-03-28 19:00:20 [INFO] [train_embeddings.py] Epoch 3/10, Avg Cost: 0.043932
+2026-03-28 19:02:06 [INFO] [train_embeddings.py] Epoch 4/10, Avg Cost: 0.043309
+2026-03-28 19:04:00 [INFO] [train_embeddings.py] Epoch 5/10, Avg Cost: 0.042866
+2026-03-28 19:06:11 [INFO] [train_embeddings.py] Epoch 6/10, Avg Cost: 0.042529
+2026-03-28 19:08:21 [INFO] [train_embeddings.py] Epoch 7/10, Avg Cost: 0.042266
+2026-03-28 19:10:33 [INFO] [train_embeddings.py] Epoch 8/10, Avg Cost: 0.042040
+2026-03-28 19:12:21 [INFO] [train_embeddings.py] Epoch 9/10, Avg Cost: 0.041828
+2026-03-28 19:14:06 [INFO] [train_embeddings.py] Epoch 10/10, Avg Cost: 0.041573
+2026-03-28 19:14:06 [INFO] [train_embeddings.py] --- arxiv | Dimension 200 ---
